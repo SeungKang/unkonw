@@ -6,21 +6,14 @@ on:
       - main
     paths:
       - README.md
-
 jobs:
-  plugin-validation:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: "refs/pull/${{ github.event.number }}/merge"
-      - uses: actions/setup-node@v2
-      - uses: actions/github-script@v6
-        with:
-          script: |
-            const fs = require('fs');
+      - name: Checkout code
+        uses: actions/checkout@v4
+        id: checkout_code
 
-    permissions:
-      contents: read
-      issues: write
-      pull-requests: write
+      - name: x
+        run: |
+          echo hellooooo
